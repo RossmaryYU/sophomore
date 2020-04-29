@@ -1,0 +1,37 @@
+server:
+  port: 9091
+  context-path: /sophomore-web
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9090/eureka/
+  instance:
+      preferIpAddress: true
+
+logging:
+    config: classpath:logback.xml
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
+  freemarker:
+      # 设置模板后缀名
+      suffix: .ftl
+      # 设置文档类型
+      content-type: text/html
+      # 设置页面编码格式
+      charset: UTF-8
+      # 设置页面缓存
+      cache: false
+      #资源加载路径
+      template-loader-path: classpath:/templates/
+      expose-request-attributes: true
+      expose-session-attributes: true
+      request-context-attribute: request
+      check-template-location: true
+
+  # 设置静态文件路径，js,css等
+  mvc:
+    static-path-pattern: /static/**
